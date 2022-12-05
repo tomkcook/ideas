@@ -122,7 +122,7 @@ def extract_attrs(tokens: list[Token]) -> dict[str, Union[str, bool]]:
                 )
             if tokens[idx + 2].string == "{":
                 end_index = find_matching_paren(tokens, idx + 2)
-                yield name.string, "".join(
+                yield name.string, " ".join(
                     token.string for token in tokens[idx + 3 : end_index]
                 )
                 idx = end_index + 1

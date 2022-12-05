@@ -107,3 +107,11 @@ class Foo:
 """)
     new_module = import_result(result)
     assert new_module.Foo().x == el("div", {})
+
+def test_conditional_values():
+    result = embedded_html.transform_source("""
+test_html = >>|
+    <div class={"class-1" if True else "class-2"}/>
+|<<
+""")
+    new_module = import_result(result)
